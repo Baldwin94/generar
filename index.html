@@ -31,7 +31,7 @@
         function generarPDF(){
             const numPags = document.querySelector('input').value;
             var doc = new jsPDF('p', 'mm', 'a4');//210 x 297 mm
-            doc.setFontSize(10);
+            doc.setFontSize(8);
             doc.setFont('arial','bold');
             for (let index = 1; index <= numPags; index++) {
                 if(index!=1){
@@ -40,7 +40,7 @@
                 var letras = numeroALetras(index);
                 letras = letras.charAt(0).toUpperCase() + letras.slice(1).toLowerCase();
                 var longTexto = doc.getTextWidth(index.toString()+'/'+letras);
-                doc.text(200-longTexto, 7, index.toString()+'/'+letras);
+                doc.text(208-longTexto, 3, index.toString()+'/'+letras);
             }
             doc.save('Formato.pdf');
         }
